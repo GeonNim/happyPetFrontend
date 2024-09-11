@@ -51,14 +51,14 @@ function PostModal({ onClose, post }) {
     try {
       if (isEdit) {
         // 예약 수정
-        await axios.patch(`http://localhost:8080/update_inq/${post.inq_idx}`, {
+        await axios.patch(`http://happypetbackend.geonnim.com/update_inq/${post.inq_idx}`, {
           ...formData,
           userid,
         });
         alert('예약이 수정되었습니다.');
       } else {
         // 새로운 예약
-        await axios.post('http://localhost:8080/post_inq', {
+        await axios.post('http://happypetbackend.geonnim.com/post_inq', {
           ...formData,
           userid,
         });
