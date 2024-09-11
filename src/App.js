@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, HashRouter } from 'react-router-dom';
 import Home from './components/home';
 import Login from './components/login/index';
 import Register from './components/register/index';
@@ -52,9 +52,9 @@ function App() {
           <Route path="/community/:idx" element={<InBoard />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/mypage" element={<Mypage onLogout={handleLogout} />} />
-          <Route path="/inquiry" element={<Inquiry />} />
+          <Route path="/inquiry/:userid" element={<Inquiry />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/reservation/:userid" element={<Reservation />} />
 
           <Route path="/About" element={<About />} />
         </Routes>
@@ -68,8 +68,8 @@ function App() {
 
 export default function WrappedApp() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
