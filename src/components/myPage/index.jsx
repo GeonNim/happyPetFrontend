@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PiChatDots } from 'react-icons/pi';
 import { BsCalendarCheck } from 'react-icons/bs';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MyPage = ({ onLogout }) => {
   const [reservations, setReservations] = useState([]);
@@ -95,10 +95,8 @@ const MyPage = ({ onLogout }) => {
         </a>
 
         {/* 1:1 문의 카드 */}
-        <a
-          href="/inquiry"
-          className="flex flex-col p-8 bg-[#f1f3ea] rounded-lg shadow-lg hover:shadow-2xl transition-shadow w-300 h-48"
-        >
+        <Link to="/inquiry" className="flex flex-col p-8 bg-[#f1f3ea] rounded-lg shadow-lg hover:shadow-2xl transition-shadow w-300 h-48" >
+   
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-bold">1:1 문의</h2>
             <PiChatDots className="w-14 h-14" />
@@ -114,7 +112,8 @@ const MyPage = ({ onLogout }) => {
               <p>문의 내역이 없습니다.</p>
             )}
           </div>
-        </a>
+       
+        </Link>
       </div>
 
       {/* 탈퇴 버튼 */}
