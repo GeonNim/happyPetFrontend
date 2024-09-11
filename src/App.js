@@ -68,8 +68,10 @@ function App() {
 
 export default function WrappedApp() {
   return (
+    <BrowserRouter>
     <HashRouter>
       <App />
     </HashRouter>
+    </BrowserRouter>
   );
 }
