@@ -13,7 +13,7 @@ function PostList() {
   useEffect(() => {
     const getPostList = async () => {
       try {
-        const resp = await axios.get(`http://happypetbackend.geonnim.com/get_inq/${userid}`);
+        const resp = await axios.get(`https://happypetbackend.geonnim.com/get_inq/${userid}`);
         setPostList(resp.data);
       } catch (error) {
         console.error('문의 목록을 가져오는 중 오류가 발생했습니다:', error);
@@ -27,7 +27,7 @@ function PostList() {
     const confirmDeletion = window.confirm('정말로 삭제하시겠습니까?');
     if (confirmDeletion) {
       try {
-        await axios.delete(`http://happypetbackend.geonnim.com/delete_inq/${post.inq_idx}`);
+        await axios.delete(`https://happypetbackend.geonnim.com/delete_inq/${post.inq_idx}`);
         alert('삭제되었습니다.');
 
         // 삭제된 문의를 화면에서 제거

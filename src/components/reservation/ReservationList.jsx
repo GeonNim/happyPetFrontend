@@ -14,7 +14,7 @@ function ReservationList() {
     const getReservationList = async () => {
       try {
         const resp = await axios.get(
-          `http://happypetbackend.geonnim.com/get_reserv/${userid}`
+          `https://happypetbackend.geonnim.com/get_reserv/${userid}`
         );
         setReservationList(resp.data);
       } catch (error) {

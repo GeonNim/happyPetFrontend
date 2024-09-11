@@ -12,7 +12,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://happypetbackend.geonnim.com/login', {
+      const response = await fetch('https://happypetbackend.geonnim.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
