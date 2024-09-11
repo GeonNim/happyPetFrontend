@@ -52,9 +52,9 @@ function App() {
           <Route path="/community/:idx" element={<InBoard />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/mypage" element={<Mypage onLogout={handleLogout} />} />
-          <Route path="/inquiry/" element={<Inquiry />} />
+          <Route path="/inquiry/:userId" element={<Inquiry />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/reservation/" element={<Reservation />} />
+          <Route path="/reservation/:userId" element={<Reservation />} />
 
           <Route path="/About" element={<About />} />
         </Routes>
