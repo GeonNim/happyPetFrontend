@@ -6,13 +6,15 @@ import Register from './components/register/index';
 import Mypage from './components/myPage/index';
 import Map from './components/map';
 import Community from './components/community';
-import Inquiry from './components/inquiry/index';
-import Reservation from './components/reservation/index';
+// import Inquiry from './components/inquiry/index';
+// import Reservation from './components/reservation/index';
 import Header from './components/Header';
 import Navibar from './components/Navibar';
 import Footer from './components/Footer';
 import InBoard from './components/community/InBoard';
 import About from './components/about';
+import ReservationBoard from './components/reservation/index';
+import InquiryBoard from './components/inquiry/index';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -52,9 +54,9 @@ function App() {
           <Route path="/community/:idx" element={<InBoard />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/mypage" element={<Mypage onLogout={handleLogout} />} />
-          <Route path="/inquiry/:userId" element={<Inquiry />} />
+          <Route path="/inquiry" element={<InquiryBoard />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/reservation/:userId" element={<Reservation />} />
+          <Route path="/reservation" element={<ReservationBoard />} />
 
           <Route path="/About" element={<About />} />
         </Routes>
