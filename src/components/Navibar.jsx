@@ -54,7 +54,7 @@ const Navibar = () => {
 
       {/* 햄버거 메뉴 클릭 시 모바일 화면에서 네비 메뉴 표시 (아래쪽으로 이동) */}
       {menuOpen && (
-        <div className="absolute top-[100px] left-0 w-full flex flex-col items-center bg-gray-100 py-2 space-y-0 transition-all duration-300 ease-in-out transform md:hidden">
+        <div className="absolute top-[80px] left-0 w-full flex flex-col items-center bg-gray-100 py-2 space-y-0 transition-all duration-300 ease-in-out transform md:hidden">
           <span className="font-En text-green-600 hover:text-green-800 text-base w-full text-center py-2 border-b">
             <Link to="/about" onClick={toggleMenu}>About</Link>
           </span>

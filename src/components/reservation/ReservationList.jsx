@@ -55,7 +55,7 @@ function ReservationList() {
       <div key={reservation.reserv_idx} className="flex flex-col m-3">
         <div className="bg-[#f1f3ea] w-full flex flex-col lg:flex-row justify-between items-start lg:items-center py-5 rounded-lg relative"> {/* 반응형 flex 적용 */}
           
-          {/* 병원 정보 */}
+ 
           <div className="flex flex-col lg:flex-row items-start lg:items-center px-5 mb-4 lg:mb-0">
             <div className="lg:mr-6">
               <p>
@@ -75,12 +75,12 @@ function ReservationList() {
             </p>
           </div>
   
-          {/* 예약 날짜 */}
+
           <p className="text-gray-700 px-5 lg:px-3 lg:mr-6 mb-4 lg:mb-0">
             예약 날짜: {reservation.date}
           </p>
   
-          {/* 수정 및 삭제 버튼 */}
+
           <div className="absolute bottom-3 right-3 lg:static lg:ml-auto flex justify-end items-center">
             <div className="px-4">
               <button

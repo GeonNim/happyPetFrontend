@@ -3,7 +3,7 @@ import PageTitle from '../PageTitle';
 
 const Board = ({ image, title, text }) => {
   return (
-    <div className="container mx-auto px-4 py-8"> {/* 상하좌우 패딩 추가 */}
+    <div className="container mx-auto px-4 py-8"> 
       <PageTitle title="Community" className="py-2" />
       <h2 className="font-Kr font-bold text-2xl md:text-3xl mb-5 text-center">{title}</h2> {/* 반응형 텍스트 크기 조정 및 중앙 정렬 */}
       

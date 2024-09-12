@@ -20,14 +20,14 @@ const Subsection = () => {
         </h2>
       </div>
 
-      {/* 이미지 섹션 */}
-      <img src={dall1} alt="" className="w-4/5 lg:w-3/4 rounded-lg" /> {/* 반응형 이미지 크기 조정 */}
+
+      <img src={dall1} alt="" className="w-4/5 lg:w-3/4 rounded-lg" />
       
       <p className="w-11/12 md:w-4/5 text-center text-green-700 max-w-4xl lg:text-lg md:text-md font-Kr py-10 lg:py-20">
         저희 동물병원은 사랑하는 반려동물의 건강을 책임지며, 최상의 의료 서비스를 제공하는 것을 목표로 하고 있습니다...
       </p>
 
-      <img src={dall2} alt="" className="w-4/5 lg:w-3/4 rounded-lg" /> {/* 두 번째 이미지 반응형 크기 조정 */}
+      <img src={dall2} alt="" className="w-4/5 lg:w-3/4 rounded-lg" /> 
 
       <h1 className="text-green-800 text-3xl md:text-4xl font-Kr py-10 lg:py-20 text-center">
         사랑을 넘은 생명:

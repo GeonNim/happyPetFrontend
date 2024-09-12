@@ -133,7 +133,7 @@ function ReservModal({ onClose, reservation,hospitalName,hospitalPn }) {
               />
             </div>
   
-            {/* 체크박스 */}
+     
             <div className="checkbox flex items-center justify-between mb-4">
               <label className="font-medium">
                 <input
@@ -166,8 +166,7 @@ function ReservModal({ onClose, reservation,hospitalName,hospitalPn }) {
                 기타
               </label>
             </div>
-  
-            {/* 진료내용 */}
+
             <div className="mb-4">
               <label className="font-medium">진료내용</label>
               <textarea
@@ -178,8 +177,7 @@ function ReservModal({ onClose, reservation,hospitalName,hospitalPn }) {
               ></textarea>
             </div>
           </div>
-  
-          {/* 버튼 섹션 */}
+ 
           <div className="modal-actions flex justify-end space-x-4">
             <button
               className="px-4 py-2 bg-[#4a90e2] text-white rounded-lg hover:bg-[#357abd] transition-colors"

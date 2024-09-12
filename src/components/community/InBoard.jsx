@@ -4,13 +4,12 @@ import Board from './Board';
 import { commuData } from '../../constants/data';
 
 const InBoard = () => {
-  const { idx } = useParams(); // /board/:idx와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.
+  const { idx } = useParams(); // useParams : /board/:idx와 동일한 변수명으로 데이터를 꺼낼 수 있다.
   const [loading, setLoading] = useState(true);
   const [board, setBoard] = useState({});
   useEffect(() => {
     const fetchBoardData = () => {
       const index = parseInt(idx);
-      // console.log(`Parsed index: ${index}`);
       if (index >= 0 && index < commuData.length) {
         setBoard(commuData[index]);
       }

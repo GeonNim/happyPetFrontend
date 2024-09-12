@@ -75,13 +75,13 @@ function PostModal({ onClose, post }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-[10000]">
-  {/* 모달 배경 */}
+
   <div
     className="fixed inset-0 bg-black opacity-50"
     onClick={onClose}
   ></div>
 
-  {/* 모달 내용 */}
+
   <div className="relative bg-white text-xl p-6 rounded-lg w-full max-w-[500px] shadow-lg z-10 font-Kr">
     <h2 className="font-Kr font-bold mb-6 text-2xl text-center">
       {isEdit ? '문의 수정' : 'Contact Us'}

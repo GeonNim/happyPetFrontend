@@ -13,7 +13,6 @@ function Slider({ slideIndex, moveToPrevSlide, moveToNextSlide }) {
         className="rounded-md cursor-pointer w-full object-cover"
         onClick={moveToNextSlide}
       />
-      {/* 좌우 슬라이드 버튼을 양 끝으로 이동 */}
       <button
         className="absolute left-2 top-1/2 transform -translate-y-1/2 text-sm text-white bg-black bg-opacity-50 p-3 rounded-full"
         onClick={moveToPrevSlide}

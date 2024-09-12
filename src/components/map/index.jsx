@@ -311,11 +311,11 @@ function Map() {
     <div className="container flex flex-col justify-center w-full mt-3"> 
       <PageTitle title="Map" className="p-7 w-[80%]" /> 
       
-      <div className="flex flex-col lg:flex-row w-full gap-8"> {/* 큰 화면에서는 가로, 작은 화면에서는 세로 */}
-        <div className="relative w-full lg:w-[70%] h-[600px] mb-10 rounded-lg shadow-lg"> {/* 지도 섹션 70% */}
+      <div className="flex flex-col lg:flex-row w-full gap-8"> 
+        <div className="relative w-full lg:w-[70%] h-[600px] mb-10 rounded-lg shadow-lg">
           <div id="map" className="w-full h-full rounded-lg"></div>
 
-          {/* 검색 폼 중앙에 배치 */}
+       
           <form className="absolute top-2 left-1/2 transform -translate-x-1/2 flex justify-center bg-white p-1.5 rounded-lg shadow-lg z-50">
             <div className="flex items-center">
               <button onClick={moveToCurrentLocation} className="p-2">
@@ -339,7 +339,7 @@ function Map() {
           </form>
         </div>
 
-        {/* 병원 리스트 섹션 30% */}
+      
         <div className="w-full lg:w-[30%] h-[600px] overflow-y-auto bg-gray-50 p-4 rounded-lg shadow-lg">
           <div className="text-center font-bold text-lg mb-4">주변 병원 리스트</div>
           <ul>
@@ -368,7 +368,7 @@ function Map() {
         </div>
       </div>
 
-      {/* 모달 처리 */}
+    
       {isModalOpenR && selectedHospital && (
         <ReservModal
           onClose={() => setIsModalOpenR(false)}
