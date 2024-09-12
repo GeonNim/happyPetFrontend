@@ -5,6 +5,7 @@ import ReservModal from './ReservModal';
 import PageTitle from '../PageTitle';
 import marker from '../../assets/image/marker.png';
 import PostModal from './PostModal';
+import { TfiTarget } from "react-icons/tfi";
 
 function Map() {
   const mapRef = useRef(null);
@@ -24,7 +25,7 @@ function Map() {
   // 병원 데이터를 가져오는 함수
   const fetchHospitals = async () => {
     try {
-      const res = await fetch('https://happypetbackend.geonnim.com/hospitals');
+      const res = await fetch(`${process.env.REACT_APP_MY_DOMAIN}/hospitals`);
       if (!res.ok) {
         throw new Error('Network response was not ok.');
       }
@@ -247,38 +248,24 @@ function Map() {
     }
   };
 
-  const styles = {
-    searchForm: {
-      position: 'absolute', // 지도 위에 검색창이 표시되도록 절대 위치 설정
-      top: '10px', // 위에서 20px 아래에 배치
-      left: '50%',
-      transform: 'translateX(-50%)', // 가로 방향 가운데 정렬
-      display: 'flex',
-      justifyContent: 'center',
-      backgroundColor: 'white',
-      padding: '6px', // 위아래 padding 값을 줄여 높이 조절
-      borderRadius: '8px',
-      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)', // 그림자 효과
-      zIndex: 1000, // 지도 위에 표시되도록 z-index 설정
-    },
-    searchInput: {
-      padding: '6px', // 위아래 padding 값을 줄여 입력 필드 높이 조절
-      fontSize: '14px', // 텍스트 크기를 약간 줄임
-      borderRadius: '8px 0 0 8px',
-      border: '1px solid #ccc',
-      outline: 'none',
-      width: '250px', // 입력 필드 너비 조정
-    },
-    searchButton: {
-      padding: '6px 12px', // 위아래 padding 값을 줄여 버튼 높이 조절
-      backgroundColor: '#4CAF50',
-      color: 'white',
-      border: 'none',
-      borderRadius: '0 8px 8px 0',
-      cursor: 'pointer',
-      fontSize: '14px',
-    },
+
+  const moveToCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          const newLocation = new window.naver.maps.LatLng(latitude, longitude);
+          mapRef.current.setCenter(newLocation);
+        },
+        (error) => {
+          console.error('오류:', error);
+        }
+      );
+    } else {
+      alert('브라우저에서 위치 정보 서비스를 지원하지 않습니다.');
+    }
   };
+
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -324,32 +311,32 @@ function Map() {
     <div className="container flex flex-col  justify-center  w-full mt-3">
       <PageTitle title="Map" className="p-7 w-[80%]" />
       <div id="nomap" className="flex">
-        <div
-          id="map"
-          className="w-[80%] h-[600px] mb-10 rounded-lg"
-          submodules={['geocoder']}
-        >
-          <form style={styles.searchForm}>
-            <div style={styles.searchContainer}>
-              <input
-                type="text"
-                placeholder="주소로 검색"
-                onChange={handleChange}
-                value={address}
-                style={styles.searchInput}
-                className="search-input" // className 유지
-              />
-              <button
-                type="submit"
-                onClick={handleSearchClick}
-                style={styles.searchButton}
-                className="search-button" // className 유지
-              >
-                검색
-              </button>
-            </div>
-          </form>
-        </div>
+      <div
+  id="map"
+  className="w-[80%] h-[600px] mb-10 rounded-lg"
+  submodules={['geocoder']}
+>
+  <form className="absolute top-2 left-1/2 transform -translate-x-1/2 flex justify-center bg-white p-1.5 rounded-lg shadow-lg z-50">
+    <div className="flex items-center">
+    <button onClick={moveToCurrentLocation}><TfiTarget className='w-5 h-5 m-1'/></button>
+      <input
+        type="text"
+        placeholder="주소로 검색"
+        onChange={handleChange}
+        value={address}
+        className="p-1.5 text-sm rounded-l-lg border border-gray-300 outline-none w-[250px] h-[30px] box-border"
+      />
+      <button
+        type="submit"
+        onClick={handleSearchClick}
+        className="h-[30px] px-3 bg-green-600 text-white rounded-r-lg text-sm cursor-pointer flex items-center justify-center whitespace-nowrap"
+      >
+        검색
+      </button>
+    </div>
+  </form>
+</div>
+
         {isModalOpenR && selectedHospital && (
           <ReservModal
             onClose={() => setIsModalOpenR(false)}

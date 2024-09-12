@@ -23,7 +23,12 @@ const useGeoloaction = () => {
     };
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(success, error, {
+        enableHighAccuracy: true, // 정확도 우선 모드
+        timeout: 10000,           // 10초 이내에 응답 없으면 에러 발생
+        maximumAge: 0             // 항상 최신 위치 정보 수집
+      });
+      
     }
   };
 

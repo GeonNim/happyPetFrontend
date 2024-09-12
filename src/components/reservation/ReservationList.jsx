@@ -14,7 +14,7 @@ function ReservationList() {
     const getReservationList = async () => {
       try {
         const resp = await axios.get(
-          `https://happypetbackend.geonnim.com/get_reserv/${userid}`
+          `${process.env.REACT_APP_MY_DOMAIN}/get_reserv/${userid}`
         );
         setReservationList(resp.data);
       } catch (error) {
