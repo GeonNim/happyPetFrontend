@@ -308,59 +308,45 @@ function Map() {
   }
 
   return (
-    <div className="container flex flex-col  justify-center  w-full mt-3">
-      <PageTitle title="Map" className="p-7 w-[80%]" />
-      <div id="nomap" className="flex">
-      <div
-  id="map"
-  className="w-[80%] h-[600px] mb-10 rounded-lg"
-  submodules={['geocoder']}
->
-  <form className="absolute top-2 left-1/2 transform -translate-x-1/2 flex justify-center bg-white p-1.5 rounded-lg shadow-lg z-50">
-    <div className="flex items-center">
-    <button onClick={moveToCurrentLocation}><TfiTarget className='w-5 h-5 m-1'/></button>
-      <input
-        type="text"
-        placeholder="주소로 검색"
-        onChange={handleChange}
-        value={address}
-        className="p-1.5 text-sm rounded-l-lg border border-gray-300 outline-none w-[250px] h-[30px] box-border"
-      />
-      <button
-        type="submit"
-        onClick={handleSearchClick}
-        className="h-[30px] px-3 bg-green-600 text-white rounded-r-lg text-sm cursor-pointer flex items-center justify-center whitespace-nowrap"
-      >
-        검색
-      </button>
-    </div>
-  </form>
-</div>
+    <div className="container flex flex-col justify-center w-full mt-3"> 
+      <PageTitle title="Map" className="p-7 w-[80%]" /> 
+      
+      <div className="flex flex-col lg:flex-row w-full gap-8"> {/* 큰 화면에서는 가로, 작은 화면에서는 세로 */}
+        <div className="relative w-full lg:w-[70%] h-[600px] mb-10 rounded-lg shadow-lg"> {/* 지도 섹션 70% */}
+          <div id="map" className="w-full h-full rounded-lg"></div>
 
-        {isModalOpenR && selectedHospital && (
-          <ReservModal
-            onClose={() => setIsModalOpenR(false)}
-            hospitalId={selectedHospital.hosp_id}
-            hospitalName={selectedHospital.hosp_name}
-            hospitalPn={selectedHospital.hosp_pn}
-          />
-        )}
-        {isModalOpenI && selectedHospital && (
-          <PostModal
-            onClose={() => setIsModalOpenI(false)}
-            hospitalName={selectedHospital.hosp_name}
-            hospitalPn={selectedHospital.hosp_pn}
-          />
-        )}
-        <div className="scroll-smooth overflow-y-auto w-[30%] h-[600px]">
-          <div className="w-full font-Aa flex justify-center items-center border rounded-lg bg-gray-300">
-            주변 병원 리스트
-          </div>
+          {/* 검색 폼 중앙에 배치 */}
+          <form className="absolute top-2 left-1/2 transform -translate-x-1/2 flex justify-center bg-white p-1.5 rounded-lg shadow-lg z-50">
+            <div className="flex items-center">
+              <button onClick={moveToCurrentLocation} className="p-2">
+                <TfiTarget className="w-5 h-5" />
+              </button>
+              <input
+                type="text"
+                placeholder="주소로 검색"
+                onChange={handleChange}
+                value={address}
+                className="p-1.5 text-sm rounded-l-lg border border-gray-300 outline-none w-[250px] h-[30px] box-border"
+              />
+              <button
+                type="submit"
+                onClick={handleSearchClick}
+                className="h-[30px] px-3 bg-green-600 text-white rounded-r-lg text-sm cursor-pointer flex items-center justify-center whitespace-nowrap"
+              >
+                검색
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* 병원 리스트 섹션 30% */}
+        <div className="w-full lg:w-[30%] h-[600px] overflow-y-auto bg-gray-50 p-4 rounded-lg shadow-lg">
+          <div className="text-center font-bold text-lg mb-4">주변 병원 리스트</div>
           <ul>
             {filteredHospitals.map((hospital) => (
               <li
                 key={hospital.hosp_id}
-                className="p-2 border-b cursor-pointer"
+                className="p-2 border-b cursor-pointer hover:bg-gray-100"
                 onClick={() => {
                   const marker = hospitalMarkers.find(
                     (marker) => marker.getTitle() === hospital.hosp_name
@@ -381,6 +367,23 @@ function Map() {
           </ul>
         </div>
       </div>
+
+      {/* 모달 처리 */}
+      {isModalOpenR && selectedHospital && (
+        <ReservModal
+          onClose={() => setIsModalOpenR(false)}
+          hospitalId={selectedHospital.hosp_id}
+          hospitalName={selectedHospital.hosp_name}
+          hospitalPn={selectedHospital.hosp_pn}
+        />
+      )}
+      {isModalOpenI && selectedHospital && (
+        <PostModal
+          onClose={() => setIsModalOpenI(false)}
+          hospitalName={selectedHospital.hosp_name}
+          hospitalPn={selectedHospital.hosp_pn}
+        />
+      )}
     </div>
   );
 }

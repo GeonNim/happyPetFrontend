@@ -91,90 +91,116 @@ function ReservModal({ onClose, reservation,hospitalName,hospitalPn }) {
 
   return (
     <div className="modal font-Kr">
-      <div className="modal-content min-h-[476px] max-w-[550px]">
-        <h2 className="text-3xl font-semibold pb-5">
-          {isEdit ? '예약 수정' : '예약하기'}
+    <div className="modal-content min-h-[476px] max-w-[550px] p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold pb-5 text-center">
+        {isEdit ? '예약 수정' : '예약하기'}
+      </h2>
+      <div>
+        <h2 className="font-semibold text-lg pb-5 text-center">
+          {formData.hosp_name}
         </h2>
-        <div>
-          <h2 className="font-semibold text-lg pb-5 text-center">
-            {formData.hosp_name}
-          </h2>
-          <form className="flex flex-col justify-start">
-            <div className="inputLabel flex flex-col">
-              <div>
-                <label>
-                  이름:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>전화번호:&nbsp;</label>
-                <input
-                  type="text"
-                  name="pn"
-                  value={formData.pn}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>방문일자:&nbsp;</label>
-                <input
-                  type="date"
-                  name="date"
-                  min={availabaleDay}
-                  value={formData.date}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="checkbox text-center pr-6">
-                <label>강아지</label>
+        <form className="flex flex-col space-y-4">
+          <div className="inputLabel">
+            <div className="mb-4">
+              <label className="font-medium">이름</label>
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="w-full p-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4a90e2]"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="font-medium">전화번호</label>
+              <input
+                type="text"
+                name="pn"
+                value={formData.pn}
+                onChange={handleChange}
+                className="w-full p-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4a90e2]"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="font-medium">방문일자</label>
+              <input
+                type="date"
+                name="date"
+                min={availabaleDay}
+                value={formData.date}
+                onChange={handleChange}
+                className="w-full p-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4a90e2]"
+              />
+            </div>
+  
+            {/* 체크박스 */}
+            <div className="checkbox flex items-center justify-between mb-4">
+              <label className="font-medium">
                 <input
                   type="checkbox"
                   name="dog"
                   checked={formData.dog}
                   onChange={handleChange}
+                  className="mr-2"
                 />
-                <label>고양이</label>
+                강아지
+              </label>
+              <label className="font-medium">
                 <input
                   type="checkbox"
                   name="cat"
                   checked={formData.cat}
                   onChange={handleChange}
+                  className="mr-2"
                 />
-                <label>기타</label>
+                고양이
+              </label>
+              <label className="font-medium">
                 <input
                   type="checkbox"
                   name="etc"
                   checked={formData.etc}
                   onChange={handleChange}
+                  className="mr-2"
                 />
-              </div>
-              <div>
-                <label>진료내용:&nbsp;</label>
-                <textarea
-                  name="descriptionR"
-                  value={formData.descriptionR}
-                  onChange={handleChange}
-                />
-              </div>
+                기타
+              </label>
             </div>
-            <div className="modal-actions font-semibold justify-end">
-              <button className='mx-5' type="button" onClick={handleSubmit}>
-                {isEdit ? '수정하기' : '예약하기'}
-              </button>
-              <button type="button" onClick={onClose}>
-                취소
-              </button>
+  
+            {/* 진료내용 */}
+            <div className="mb-4">
+              <label className="font-medium">진료내용</label>
+              <textarea
+                name="descriptionR"
+                value={formData.descriptionR}
+                onChange={handleChange}
+                className="w-full p-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4a90e2] h-[100px]"
+              ></textarea>
             </div>
-          </form>
-        </div>
+          </div>
+  
+          {/* 버튼 섹션 */}
+          <div className="modal-actions flex justify-end space-x-4">
+            <button
+              className="px-4 py-2 bg-[#4a90e2] text-white rounded-lg hover:bg-[#357abd] transition-colors"
+              type="button"
+              onClick={handleSubmit}
+            >
+              {isEdit ? '수정하기' : '예약하기'}
+            </button>
+            <button
+              className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 transition-colors"
+              type="button"
+              onClick={onClose}
+            >
+              취소
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+  
   );
 }
 

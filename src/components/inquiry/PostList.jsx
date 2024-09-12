@@ -52,49 +52,56 @@ function PostList() {
   };
 
   return (
-    <div className="text-sm font-Aa min-w-[845px]">
-      {PostList.map((post) => (
-        <div key={post.inq_idx} className="flex flex-col my-3">
-          <div className="bg-[#f1f3ea] flex px-3 justify-between items-center py-5 rounded-lg">
-            <div className="flex items-center">
-              <div className="">
-                <p>
-                  <span className="font-bold text-green-900">병원 : </span>
-                  {post.hosp_name}
-                </p>
-                <p>
-                  <span className="font-bold text-green-700">병원 번호 : </span>
-                  {post.hosp_pn}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-700  overflow-y-auto w-[300px] h-10 justify-start ">
-              {post.descriptioni}
-            </p>
-
-            <div className="rounded-lg flex justify-center items-center">
-              <div className="px-6">
-                <button
-                  onClick={() => handleEditClickI(post)}
-                  className="w-10 h-10 flex justify-center items-center"
-                >
-                  <LuArrowBigUpDash className="w-7 h-7" />
-                </button>
-              </div>
-              <button
-                onClick={() => deleteInq(post)}
-                className="w-10 h-10 ml-2"
-              >
-                <FaTrashAlt className="w-5 h-5" />
-              </button>
+    <div className="text-sm font-Aa w-full min-w-[300px] lg:min-w-[845px]">
+    {PostList.map((post) => (
+      <div key={post.inq_idx} className="flex flex-col my-3">
+        <div className="bg-[#f1f3ea] flex flex-col lg:flex-row px-3 py-5 rounded-lg relative min-h-[150px]"> {/* 최소 높이를 추가해 버튼 공간 확보 */}
+          {/* 병원 정보 */}
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mb-4 lg:mb-0">
+            <div className="mb-2 lg:mb-0 lg:mr-6">
+              <p>
+                <span className="font-bold text-green-900">병원: </span>
+                {post.hosp_name}
+              </p>
+              <p>
+                <span className="font-bold text-green-700">병원 번호: </span>
+                {post.hosp_pn}
+              </p>
             </div>
           </div>
+  
+          {/* 문의 내용 (높이 제한과 스크롤 추가) */}
+          <p className="text-gray-700 overflow-y-auto lg:w-[300px] w-full max-h-[80px] mb-4 lg:mb-0 lg:mr-6">
+            {post.descriptioni}
+          </p>
+  
+          {/* 수정 및 삭제 버튼 우하단으로 고정 */}
+          <div className="absolute bottom-3 right-3 flex justify-end items-center">
+            <div className="px-4">
+              <button
+                onClick={() => handleEditClickI(post)}
+                className="w-10 h-10 flex justify-center items-center"
+              >
+                <LuArrowBigUpDash className="w-7 h-7" />
+              </button>
+            </div>
+            <button
+              onClick={() => deleteInq(post)}
+              className="w-10 h-10 ml-2"
+            >
+              <FaTrashAlt className="w-5 h-5" />
+            </button>
+          </div>
         </div>
-      ))}
-      {isModalOpen && currentPost && (
-        <PostModal onClose={handleModalClose} post={currentPost} />
-      )}
-    </div>
+      </div>
+    ))}
+  
+    {isModalOpen && currentPost && (
+      <PostModal onClose={handleModalClose} post={currentPost} />
+    )}
+  </div>
+  
+  
   );
 }
 

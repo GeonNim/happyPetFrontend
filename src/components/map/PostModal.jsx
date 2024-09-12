@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './modal.css';
 
 function PostModal({ onClose, post }) {
   const [formData, setFormData] = useState({
@@ -74,56 +75,61 @@ function PostModal({ onClose, post }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-[10000]">
-      {/* 모달 배경 */}
-      <div
-        className="fixed inset-0 bg-black opacity-50"
-        onClick={onClose}
-      ></div>
+  {/* 모달 배경 */}
+  <div
+    className="fixed inset-0 bg-black opacity-50"
+    onClick={onClose}
+  ></div>
 
-      {/* 모달 내용 */}
-      <div className="relative bg-white text-xl p-6 rounded-lg w-1/3 shadow-lg z-10 font-kr">
-        <h2 className="font-Kr font-bold mb-4 text-4xl text-center">
-          {isEdit ? '문의 수정' : 'Contact Us'}
-        </h2>
-        <input
-          type="text"
-          placeholder="이름을 입력하세요"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-        />
-        <input
-          type="tel"
-          placeholder="연락처를 입력하세요"
-          name="pn"
-          value={formData.pn}
-          onChange={handleChange}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-        />
-        <textarea
-          placeholder="문의 내용을 입력하세요."
-          name="descriptionI"
-          value={formData.descriptionI}
-          onChange={handleChange}
-          className="w-full h-[260px] p-2 mb-4 border border-gray-300 rounded"
-        ></textarea>
-        <div className="flex justify-end">
-          <button
-            onClick={handleSubmit}
-            className="px-3 py-1.5 bg-[#acbd9b] text-white text-xl rounded mr-2"
-          >
-            {isEdit ? '수정하기' : '문의하기'}
-          </button>
-          <button
-            onClick={onClose}
-            className="px-3 py-1.5 bg-gray-300 text-gray-800 text-xl rounded "
-          >
-            닫기
-          </button>
-        </div>
-      </div>
+  {/* 모달 내용 */}
+  <div className="relative bg-white text-xl p-6 rounded-lg w-full max-w-[500px] shadow-lg z-10 font-Kr">
+    <h2 className="font-Kr font-bold mb-6 text-2xl text-center">
+      {isEdit ? '문의 수정' : 'Contact Us'}
+    </h2>
+
+    <input
+      type="text"
+      placeholder="이름을 입력하세요"
+      name="username"
+      value={formData.username}
+      onChange={handleChange}
+      className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:border-[#4a90e2] focus:outline-none transition-colors"
+    />
+
+    <input
+      type="tel"
+      placeholder="연락처를 입력하세요"
+      name="pn"
+      value={formData.pn}
+      onChange={handleChange}
+      className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:border-[#4a90e2] focus:outline-none transition-colors"
+    />
+
+    <textarea
+      placeholder="문의 내용을 입력하세요."
+      name="descriptionI"
+      value={formData.descriptionI}
+      onChange={handleChange}
+      className="w-full h-[180px] p-3 mb-4 border border-gray-300 rounded-lg focus:border-[#4a90e2] focus:outline-none transition-colors"
+    ></textarea>
+
+    <div className="flex justify-end">
+      <button
+        onClick={handleSubmit}
+        className="px-4 py-2 bg-[#4a90e2] text-white text-lg rounded-lg hover:bg-[#357abd] transition-colors mr-2"
+      >
+        {isEdit ? '수정하기' : '문의하기'}
+      </button>
+      <button
+        onClick={onClose}
+        className="px-4 py-2 bg-gray-300 text-gray-800 text-lg rounded-lg hover:bg-gray-400 transition-colors"
+      >
+        닫기
+      </button>
     </div>
+  </div>
+</div>
+
   );
 }
 
