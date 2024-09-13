@@ -249,7 +249,8 @@ function Map() {
   };
 
 
-  const moveToCurrentLocation = () => {
+  const moveToCurrentLocation = (e) => {
+    e.preventDefault();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -316,9 +317,9 @@ function Map() {
           <div id="map" className="w-full h-full rounded-lg"></div>
 
        
-          <form className="absolute top-2 left-1/2 transform -translate-x-1/2 flex justify-center bg-white p-1.5 rounded-lg shadow-lg z-50">
+          <form  className="absolute top-2 left-1/2 transform -translate-x-1/2 flex justify-center bg-white p-1.5 rounded-lg shadow-lg z-50">
             <div className="flex items-center">
-              <button onClick={moveToCurrentLocation} className="p-2">
+              <button type="button" onClick={moveToCurrentLocation} className="p-2">
                 <TfiTarget className="w-5 h-5" />
               </button>
               <input
