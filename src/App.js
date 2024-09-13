@@ -41,7 +41,7 @@ function App() {
 
   return (
 <div className="z-0 flex flex-col justify-between items-center min-h-screen w-full lg:min-w-[970px]">
-  <nav className="z-10 header w-full border-[#e0e0e0] backdrop-blur-sm">
+  <nav className="z-[1000] header w-full border-[#e0e0e0] backdrop-blur-sm">
     <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
     <Navibar />
   </nav>
