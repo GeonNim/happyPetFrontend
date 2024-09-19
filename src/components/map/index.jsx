@@ -69,7 +69,7 @@ function Map() {
         tileDuration: 200,
         zoom: 14,
         zoomControl: true,
-        zoomControlOptions: { position: naver.maps.Position.TOP_RIGHT },
+        zoomControlOptions: { position: naver.maps.Position.RIGHT_CENTER },
       };
       mapRef.current = new naver.maps.Map('map', mapOptions);
 
