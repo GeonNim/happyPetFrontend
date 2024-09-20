@@ -54,7 +54,7 @@ function ReservModal({ onClose, reservation,hospitalName,hospitalPn }) {
       if (isEdit) {
         // 예약 수정
         await axios.patch(
-          `${secrets.REACT_APP_MY_DOMAIN}/update_reserv/${reservation.reserv_idx}`,
+          `${process.env.REACT_APP_MY_DOMAIN}/update_reserv/${reservation.reserv_idx}`,
           {
             ...formData,
             userid,
@@ -63,7 +63,7 @@ function ReservModal({ onClose, reservation,hospitalName,hospitalPn }) {
         alert('예약이 수정되었습니다.');
       } else {
         // 새로운 예약
-        await axios.post(`${secrets.REACT_APP_MY_DOMAIN}/post_reserv`, {
+        await axios.post(`${process.env.REACT_APP_MY_DOMAIN}/post_reserv`, {
           ...formData,
           userid,
         });

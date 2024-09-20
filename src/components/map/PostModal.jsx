@@ -52,14 +52,14 @@ function PostModal({ onClose, post,hospitalName,hospitalPn }) {
     try {
       if (isEdit) {
         // 예약 수정
-        await axios.patch(`${secrets.REACT_APP_MY_DOMAIN}/update_inq/${post.inq_idx}`, {
+        await axios.patch(`${process.env.REACT_APP_MY_DOMAIN}/update_inq/${post.inq_idx}`, {
           ...formData,
           userid,
         });
         alert('예약이 수정되었습니다.');
       } else {
         // 새로운 예약
-        await axios.post(`${secrets.REACT_APP_MY_DOMAIN}/post_inq`, {
+        await axios.post(`${process.env.REACT_APP_MY_DOMAIN}/post_inq`, {
           ...formData,
           userid,
         });
