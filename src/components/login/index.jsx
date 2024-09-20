@@ -12,7 +12,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_MY_DOMAIN}/login`, {
+      const response = await fetch(`${secrets.REACT_APP_MY_DOMAIN}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
