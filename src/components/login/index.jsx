@@ -8,11 +8,12 @@ const Login = ({ onLogin }) => {
 
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`https://happypetbackend.geonnim.com/login`, {
+      const response = await fetch(`${process.env.REACT_APP_MY_DOMAIN}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

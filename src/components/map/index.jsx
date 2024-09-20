@@ -25,7 +25,7 @@ function Map() {
   // 병원 데이터를 가져오는 함수
   const fetchHospitals = async () => {
     try {
-      const res = await fetch(`https://happypetbackend.geonnim.com/hospitals`);
+      const res = await fetch(`${process.env.REACT_APP_MY_DOMAIN}/hospitals`);
       if (!res.ok) {
         throw new Error('Network response was not ok.');
       }
