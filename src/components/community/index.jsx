@@ -7,7 +7,7 @@ const Community = () => {
   return (
     <div className='container'>
       <PageTitle title="Community" className="p-7"/>
-      <div className='bg-white w-full h-[68.6vh] rounded-lg shadow-[#7b9e84d1]  '>
+      <div className='bg-white w-full h-auto rounded-lg shadow-[#7b9e84d1]  '>
   
   <BoardList/>
         
