@@ -34,7 +34,7 @@ jobs:
 #  —------ 이 부분까지 입력하고, 19 ~ 28번 절차 진행함
     steps:
       - name: Pull image from docker hub
-        run: docker pull geonnim/happypetfront:latest
+        run: docker pull --no-cache geonnim/happypetfront:latest
       - name: Delete existing container
         run: docker rm -f reactContainer
       - name: Run container
