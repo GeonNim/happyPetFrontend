@@ -1,70 +1,50 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AICC 1차 프로젝트
 
-## Available Scripts
+### 프로젝트 설명
+프로젝트의 간략한 설명을 여기에 작성합니다.  
+예: 이 프로젝트는 **React**와 **Tailwind CSS**를 사용하여 반응형 웹 애플리케이션을 개발한 것입니다. **GitHub Actions**를 이용해 CICD 파이프라인을 구축하고 있으며, **AWS EC2**와 **Docker**를 통해 백엔드 서버를 배포합니다.
 
-In the project directory, you can run:
+## 주요 기능
 
-### `npm start`
+- [ ] **React**와 **Tailwind CSS** 기반의 반응형 웹 애플리케이션
+- [ ] **Docker**를 사용한 컨테이너화
+- [ ] **GitHub Actions**로 구성된 CICD 파이프라인
+- [ ] **AWS EC2**를 사용한 백엔드 배포
+- [ ] 다양한 페이지 구성 (예: Home, Map, About, Mypage 등)
+- [ ] 반응형 네비게이션 바 및 햄버거 메뉴
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 주요 개발 항목
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **프로젝트 내에서 역할**: 사용자 인터페이스(UI) 중 네비게이션 바, 홈페이지, 병원 찾기 기능 및 커뮤니티 페이지 관련 개발 및 유지보수, 반응형 CSS 구현을 담당.
+- **주요 업무**:
+  - 네비게이션 바 및 사이트 구조 디자인
+  - 병원 찾기 기능 구현
+  - 커뮤니티 페이지 개발
+  - 반응형 CSS 구현
 
-### `npm test`
+## 기술 스택
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **프론트엔드**: React, Tailwind CSS
+- **백엔드**: Node.js, Express
+- **데이터베이스**: PostgreSQL
+- **배포**: AWS EC2, Docker
+- **CI/CD**: GitHub Actions
 
-### `npm run build`
+## 설치 및 실행 방법
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 사전 요구 사항
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Node.js](https://nodejs.org/) 
+- [Docker](https://www.docker.com/) 
+- [Git](https://git-scm.com/) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 배포
 
-### `npm run eject`
+배포는 AWS EC2 인스턴스를 사용하며, CICD 파이프라인을 통해 자동화되었습니다. GitHub Actions를 사용하여 새로운 변경 사항이 발생하면 자동으로 Docker 이미지가 빌드되고 EC2 서버에 배포됩니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 배포 방법
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. GitHub 레포지토리에 코드를 푸시합니다.
+2. GitHub Actions 워크플로우가 자동으로 실행됩니다.
+3. AWS EC2에서 Docker 이미지가 자동으로 배포됩니다.
